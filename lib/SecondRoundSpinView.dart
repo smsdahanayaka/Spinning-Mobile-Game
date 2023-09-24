@@ -1,21 +1,18 @@
 import 'dart:async';
 import 'dart:math';
-
 import 'package:flutter/material.dart';
+import 'package:spinn/SecondCongView.dart';
 
-import 'BackToHome.dart';
-import 'FirstPage.dart';
-import 'SecondCongradulationView.dart';
-import 'ThredRound.dart';
-
-class SecondRound extends StatefulWidget {
-  const SecondRound({Key? key}) : super(key: key);
+class SecondRoundSpinView extends StatefulWidget {
+  const SecondRoundSpinView({Key? key}) : super(key: key);
 
   @override
-  State<SecondRound> createState() => _SpinningWheelState();
+  State<SecondRoundSpinView> createState() => _SpinningWheelState();
 }
 
-class _SpinningWheelState extends State<SecondRound> {
+class _SpinningWheelState extends State<SecondRoundSpinView> {
+
+  // set global variables
   var arrayList = [""];
   late Timer timer;
   late Random random;
@@ -25,17 +22,28 @@ class _SpinningWheelState extends State<SecondRound> {
   @override
   void initState() {
     super.initState();
+
+    //set initial state
     random = Random();
     degree = 0;
     result = "0";
   }
 
+  // spin img rotation method
   void rotateWheel() {
+
+    // set default time
     int time = 20000;
-    timer = Timer.periodic(Duration(milliseconds: 10), (timer) {
+
+    // calling setState method as a loop
+    timer = Timer.periodic(const Duration(milliseconds: 10), (timer) {
       if (time > 0) {
         setState(() {
+
+          // set random degree
           degree = random.nextInt(360).toDouble();
+
+          //get calculation result calling by calculatePoint method
           result = calculatePoint(degree);
         });
         time = time - 100;
@@ -43,6 +51,7 @@ class _SpinningWheelState extends State<SecondRound> {
     });
   }
 
+  // calculate point method
   String calculatePoint(double degree) {
     int lowPoint = 0;
     int arc = 30; // 360/8
@@ -66,6 +75,7 @@ class _SpinningWheelState extends State<SecondRound> {
     return Scaffold(
       body: Stack(
         children: [
+
           // Background pic
           Image.asset(
             'assets/images/2nd.1.png',
@@ -73,11 +83,13 @@ class _SpinningWheelState extends State<SecondRound> {
             width: double.infinity,
             height: double.infinity,
           ),
+
           // Grid
           GridView.count(
             crossAxisCount: 2,
             mainAxisSpacing: 0,
             children: [
+
               // Grid 1st item
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -87,6 +99,7 @@ class _SpinningWheelState extends State<SecondRound> {
                     height: screenHeight * 0.05,
                     width: screenWidth * 0.05,
                   ),
+
                   // Spin wheel
                   Container(
                     height: screenHeight * 0.55,
@@ -101,7 +114,7 @@ class _SpinningWheelState extends State<SecondRound> {
                               child: Image(
                                 width: screenWidth * 5.5,
                                 height: screenHeight * 5.15,
-                                image: AssetImage('assets/images/2nd.2.png'),
+                                image: const AssetImage('assets/images/2nd.2.png'),
                               ),
                             ),
                           ),
@@ -109,6 +122,8 @@ class _SpinningWheelState extends State<SecondRound> {
                       ],
                     ),
                   ),
+
+
                   // Spin arrow
                   Container(
                     height: screenHeight * 0.06,
@@ -118,14 +133,17 @@ class _SpinningWheelState extends State<SecondRound> {
                       child: Image(
                         height: screenHeight * 0.06,
                         width: screenWidth * 0.06,
-                        image: AssetImage('assets/images/arrow.png'),
+                        image:const AssetImage('assets/images/arrow.png'),
                       ),
                     ),
                   ),
+
                   // Size box
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
+
+                  // add button
                   Container(
                     width: 150,
                     height: 30,
@@ -141,8 +159,10 @@ class _SpinningWheelState extends State<SecondRound> {
                   ),
                 ],
               ),
+
+
               // Grid 2nd item
-              Align(
+              const Align(
                 alignment: Alignment.topLeft,
                 child: Text(
                   "",
@@ -154,6 +174,8 @@ class _SpinningWheelState extends State<SecondRound> {
               ),
             ],
           ),
+
+
           // Button in the bottom right corner
           Positioned(
             bottom: 100,
@@ -164,13 +186,13 @@ class _SpinningWheelState extends State<SecondRound> {
                 backgroundColor: MaterialStateProperty.all(Colors.pink),
               ),
               onPressed: () {
-                if(result=="0" || result =="2" || result =="4" || result =="6"){
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => ThredRound()));
+                if(result=="1" || result =="3" || result =="4" || result =="6" || result =="8" || result =="11" || result =="9" || result =="7" ){
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>const SecondCongView()));
                 }else{
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => FirstPage()));
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>const SecondCongView()));
                 }
               },
-              child: Text("Next"),
+              child:const Text("Next"),
             ),
           ),
         ],

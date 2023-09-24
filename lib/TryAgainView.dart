@@ -1,19 +1,16 @@
 import 'dart:async';
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:spinn/FirstPage.dart';
+import 'package:spinn/HomePageView.dart';
 
-import 'SecondRound.dart';
 
-class BackToHome extends StatefulWidget {
-  const BackToHome({Key? key}) : super(key: key);
+class TryAgainView extends StatefulWidget {
+  const TryAgainView({Key? key}) : super(key: key);
 
   @override
-  State<BackToHome> createState() => _SpiningWheelState();
+  State<TryAgainView> createState() => _SpiningWheelState();
 }
 
-class _SpiningWheelState extends State<BackToHome> {
+class _SpiningWheelState extends State<TryAgainView> {
 
 
 
@@ -21,9 +18,11 @@ class _SpiningWheelState extends State<BackToHome> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Future.delayed(Duration(seconds:3), () {
+
+    // dealy method for back to home page
+    Future.delayed(const Duration(seconds:3), () {
       // Navigate to FirstPage (replace current route)
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => FirstPage()));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePageView()));
     });
 
   }
@@ -34,7 +33,8 @@ class _SpiningWheelState extends State<BackToHome> {
     return Scaffold(
       body: Stack(
         children: [
-          //background pic
+
+          //add background img
           Image.asset(
             'assets/images/tryagain.png',
             fit: BoxFit.cover,

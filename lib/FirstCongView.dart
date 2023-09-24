@@ -1,18 +1,15 @@
 import 'dart:async';
-import 'dart:math';
-
 import 'package:flutter/material.dart';
+import 'package:spinn/SecondRoundSpinView.dart';
 
-import 'SecondRound.dart';
-
-class SecondCongradulationView extends StatefulWidget {
-  const SecondCongradulationView({Key? key}) : super(key: key);
+class FirstCongView extends StatefulWidget {
+  const FirstCongView({Key? key}) : super(key: key);
 
   @override
-  State<SecondCongradulationView> createState() => _SpiningWheelState();
+  State<FirstCongView> createState() => _SpiningWheelState();
 }
 
-class _SpiningWheelState extends State<SecondCongradulationView> {
+class _SpiningWheelState extends State<FirstCongView> {
 
 
 
@@ -20,9 +17,9 @@ class _SpiningWheelState extends State<SecondCongradulationView> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Future.delayed(Duration(seconds:3), () {
+    Future.delayed(const Duration(seconds:3), () {
       // Navigate to FirstPage (replace current route)
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SecondRound()));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>const SecondRoundSpinView()));
     });
 
   }
@@ -35,7 +32,7 @@ class _SpiningWheelState extends State<SecondCongradulationView> {
         children: [
           //background pic
           Image.asset(
-            'assets/images/consethred.png',
+            'assets/images/consecondround.png',
             fit: BoxFit.cover,
             width: double.infinity,
             height: double.infinity,

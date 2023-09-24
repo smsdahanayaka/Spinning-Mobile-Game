@@ -1,12 +1,8 @@
 import 'dart:async';
 import 'dart:math';
-
 import 'package:flutter/material.dart';
-
-import 'BackToHome.dart';
-import 'FirstCongradutaionView.dart';
-import 'FirstPage.dart';
-import 'SecondRound.dart';
+import 'FirstCongView.dart';
+import 'HomePageView.dart';
 
 class JeansSpinView extends StatefulWidget {
   const JeansSpinView({Key? key}) : super(key: key);
@@ -65,7 +61,7 @@ class _SpiningWheelState extends State<JeansSpinView> {
     int sectors=8;
     String res="";
 
-    for(int i=sectors;i>=0;i--){
+    for(int i=sectors;i>0;i--){
 
       if(degree>lowPoint && degree<lowPoint+arc){
         res=i.toString();
@@ -125,7 +121,7 @@ class _SpiningWheelState extends State<JeansSpinView> {
                               child: Image(
                                 width: screenWidth*5.5,
                                 height: screenHeight*5.15,
-                                image: AssetImage('assets/images/4.2.png'),
+                                image:const AssetImage('assets/images/4.2.png'),
                               ),
                             ),
                           ),
@@ -143,20 +139,20 @@ class _SpiningWheelState extends State<JeansSpinView> {
                       child: Image(
                         height: screenHeight*0.06,
                         width: screenWidth*0.06,
-                        image: AssetImage('assets/images/arrow.png'),
+                        image:const AssetImage('assets/images/arrow.png'),
                       ),
                     ),
                   ),
 
                   // size box
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Container(
                     width: 150,
                     height: 30,
                     child: ElevatedButton(
-                      style: ButtonStyle(
+                      style:const ButtonStyle(
                         backgroundColor: MaterialStatePropertyAll(Colors.pink),
 
                       ),
@@ -164,7 +160,7 @@ class _SpiningWheelState extends State<JeansSpinView> {
                         rotateWheel();
                       },
 
-                      child: Text("SPIN"),
+                      child:const Text("SPIN"),
                     ),
                   ),
 
@@ -175,7 +171,7 @@ class _SpiningWheelState extends State<JeansSpinView> {
               ),
 
               //grid 2nd item
-              Align(
+              const Align(
                 alignment: Alignment.topLeft,
                 child: Text("",
                   style:TextStyle(
@@ -198,15 +194,15 @@ class _SpiningWheelState extends State<JeansSpinView> {
                 backgroundColor: MaterialStateProperty.all(Colors.pink),
               ),
               onPressed: () {
-                if(result=="0" || result =="2" || result =="4" || result =="6"){
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SecondRound()));
+                if(result=="1" || result =="3" || result =="5" || result =="7"){
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>const FirstCongView()));
                 }else{
 
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => FirstPage()));
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>const HomePageView()));
 
                 }
               },
-              child: Text("Next"),
+              child:const Text("Next"),
             ),
           ),
         ],

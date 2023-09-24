@@ -3,7 +3,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-import 'FirstCongradutaionView.dart';
+import 'FirstCongView.dart';
 
 class checkView extends StatefulWidget {
   const checkView({Key? key}) : super(key: key);
@@ -84,7 +84,7 @@ class _SpiningWheelState extends State<checkView> {
 
 
         // Navigate to FirstPage (replace current route)
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => FirstCongradutaionView()));
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const FirstCongView()));
         return;
 
       }else{

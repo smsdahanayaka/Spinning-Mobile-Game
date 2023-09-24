@@ -1,20 +1,17 @@
 import 'dart:async';
-import 'dart:math';
-
 import 'package:flutter/material.dart';
+import 'package:spinn/SecondRoundSpinView.dart';
 
-import 'FirstPage.dart';
-import 'SecondRound.dart';
-import 'SplashView.dart';
+import 'ThirdRoundSpinView.dart';
 
-class LastCongradulationView extends StatefulWidget {
-  const LastCongradulationView({Key? key}) : super(key: key);
+class SecondCongView extends StatefulWidget {
+  const SecondCongView({Key? key}) : super(key: key);
 
   @override
-  State<LastCongradulationView> createState() => _SpiningWheelState();
+  State<SecondCongView> createState() => _SpiningWheelState();
 }
 
-class _SpiningWheelState extends State<LastCongradulationView> {
+class _SpiningWheelState extends State<SecondCongView> {
 
 
 
@@ -22,9 +19,9 @@ class _SpiningWheelState extends State<LastCongradulationView> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Future.delayed(Duration(seconds:3), () {
+    Future.delayed(const Duration(seconds:3), () {
       // Navigate to FirstPage (replace current route)
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SplashView()));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const ThirdRoundSpinView()));
     });
 
   }
@@ -35,9 +32,10 @@ class _SpiningWheelState extends State<LastCongradulationView> {
     return Scaffold(
       body: Stack(
         children: [
+
           //background pic
           Image.asset(
-            'assets/images/30discount.png',
+            'assets/images/consethred.png',
             fit: BoxFit.cover,
             width: double.infinity,
             height: double.infinity,

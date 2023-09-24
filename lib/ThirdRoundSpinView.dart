@@ -1,21 +1,17 @@
 import 'dart:async';
 import 'dart:math';
-
 import 'package:flutter/material.dart';
+import 'package:spinn/HomePageView.dart';
+import 'LastPageView.dart';
 
-import 'BackToHome.dart';
-import 'FirstPage.dart';
-import 'LastPage.dart';
-import 'SecondCongradulationView.dart';
-
-class ThredRound extends StatefulWidget {
-  const ThredRound({Key? key}) : super(key: key);
+class ThirdRoundSpinView extends StatefulWidget {
+  const ThirdRoundSpinView({Key? key}) : super(key: key);
 
   @override
-  State<ThredRound> createState() => _SpinningWheelState();
+  State<ThirdRoundSpinView> createState() => _SpinningWheelState();
 }
 
-class _SpinningWheelState extends State<ThredRound> {
+class _SpinningWheelState extends State<ThirdRoundSpinView> {
   var arrayList = [""];
   late Timer timer;
   late Random random;
@@ -101,7 +97,7 @@ class _SpinningWheelState extends State<ThredRound> {
                               child: Image(
                                 width: screenWidth * 5.5,
                                 height: screenHeight * 5.15,
-                                image: AssetImage('assets/images/3rd.1.png'),
+                                image: const AssetImage('assets/images/3rd.1.png'),
                               ),
                             ),
                           ),
@@ -118,12 +114,12 @@ class _SpinningWheelState extends State<ThredRound> {
                       child: Image(
                         height: screenHeight * 0.06,
                         width: screenWidth * 0.06,
-                        image: AssetImage('assets/images/arrow.png'),
+                        image: const AssetImage('assets/images/arrow.png'),
                       ),
                     ),
                   ),
                   // Size box
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Container(
@@ -142,7 +138,7 @@ class _SpinningWheelState extends State<ThredRound> {
                 ],
               ),
               // Grid 2nd item
-              Align(
+              const Align(
                 alignment: Alignment.topLeft,
                 child: Text(
                   "",
@@ -165,9 +161,9 @@ class _SpinningWheelState extends State<ThredRound> {
               ),
               onPressed: () {
                 if(result=="0" || result =="1" || result =="2" || result =="3"){
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LastCongradulationView()));
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const LastPageView()));
                 }else{
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => FirstPage()));
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePageView()));
                 }
               },
               child: Text("Next"),

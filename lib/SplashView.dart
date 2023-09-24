@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'FirstPage.dart';
+import 'HomePageView.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({Key? key}) : super(key: key);
@@ -18,57 +18,57 @@ class _SplashViewState extends State<SplashView> {
   initState() {
 
     super.initState();
-    // ignore: avoid_print
-    Future.delayed(Duration(seconds:5), () {
+
+    Future.delayed(const Duration(seconds:7), () { // Delayed and navigate to main view
       // Navigate to FirstPage (replace current route)
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => FirstPage()));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePageView()));
     });
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) { //build method
       return Scaffold(
           body: Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
+            decoration: const BoxDecoration(
+              image:  DecorationImage( //Add background image 1
                 image: AssetImage('assets/images/BG.1.png'),
                 fit: BoxFit.fill,
               ),
             ),
             child: Center(
               child: Container(
-                decoration: BoxDecoration(
-                  image: DecorationImage(
+                decoration:const BoxDecoration(
+                  image: DecorationImage( //Add background image 2
                     image: AssetImage('assets/images/1.01.png'),
                     //fit: BoxFit.cover,
                   ),
                 ),
                 child: Center(
                   child: Container(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
+                    decoration:const BoxDecoration(
+                      image: DecorationImage( //Add Splash Screen image 3
                         image: AssetImage('assets/images/1.02.png'),
                         //fit: BoxFit.cover,
                       ),
                     ),
                     child: Center(
                       child: Container(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
+                        decoration:const BoxDecoration(
+                          image: DecorationImage( //Add Splash Screen image 4
                             image: AssetImage('assets/images/1.03.png'),
                           ),
                         ),
                         child: Center(
                           child: Container(
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
+                            decoration:const  BoxDecoration(
+                              image: DecorationImage( //Add Splash Screen image 5
                                 image: AssetImage('assets/images/1.04.png'),
                               ),
                             ),
                             child: Center(
                               child: Container(
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
+                                decoration:const BoxDecoration(
+                                  image: DecorationImage( //Add Splash Screen image 6
                                     image: AssetImage('assets/images/1.05.png'),
                                   ),
                                 ),

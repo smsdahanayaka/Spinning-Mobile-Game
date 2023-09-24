@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'FirstPage.dart';
-import 'SecondRound.dart';
+import 'package:spinn/SecondRoundSpinView.dart';
+import 'FirstCongView.dart';
+import 'TryAgainView.dart';
 
 class TopSpinView extends StatefulWidget {
   const TopSpinView({Key? key}) : super(key: key);
@@ -61,10 +61,10 @@ class _SpiningWheelState extends State<TopSpinView> {
   String calclatePoint(double degree){
     int lowPoint=0;
     int arc=45; //360/8
-    int sectors=7;
+    int sectors=8;
     String res="";
 
-    for(int i=sectors;i>=0;i--){
+    for(int i=sectors;i>0;i--){
 
       if(degree>lowPoint && degree<lowPoint+arc){
         res=i.toString();
@@ -148,14 +148,14 @@ class _SpiningWheelState extends State<TopSpinView> {
                   ),
 
                   // size box
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Container(
                     width: 150,
                     height: 30,
                     child: ElevatedButton(
-                      style: ButtonStyle(
+                      style:const ButtonStyle(
                         backgroundColor: MaterialStatePropertyAll(Colors.pink),
 
                       ),
@@ -163,7 +163,7 @@ class _SpiningWheelState extends State<TopSpinView> {
                         rotateWheel();
                       },
 
-                      child: Text("SPIN"),
+                      child:const Text("SPIN"),
                     ),
                   ),
 
@@ -174,7 +174,7 @@ class _SpiningWheelState extends State<TopSpinView> {
               ),
 
               //grid 2nd item
-              Align(
+              const Align(
                 alignment: Alignment.topLeft,
                 child: Text("",
                   style:TextStyle(
@@ -197,16 +197,16 @@ class _SpiningWheelState extends State<TopSpinView> {
                 backgroundColor: MaterialStateProperty.all(Colors.pink),
               ),
               onPressed: () {
-                if(result=="0" || result =="2" || result =="4" || result =="6"){
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SecondRound()));
+                if(result=="1" || result =="3" || result =="5" || result =="7"){
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const FirstCongView()));
                 }else{
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => FirstPage()));
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>const TryAgainView()));
 
 
 
                 }
               },
-              child: Text("Next"),
+              child:const Text("Next"),
             ),
           ),
         ],
